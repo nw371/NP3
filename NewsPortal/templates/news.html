@@ -1,0 +1,52 @@
+<!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
+{% extends 'flatpages/default.html' %}
+
+<!-- Название у нас будет proudcts -->
+{% block title %}
+News
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все товары -->
+{% block content %}
+<h1>Список публикаций</h1>
+<h1>Всего публикаций: {{news|length}}</h1>
+    <table>
+            <tr>
+                <td>
+                    <b>Заголовок</b>
+                </td>
+                <td>
+                     <b> | </b>
+                </td>
+                <td>
+                    <b>Дата</b>
+                </td>
+                <td>
+                     <b> | </b>
+                </td>
+                <td>
+                    <b>Предпросмотр</b>
+                </td>
+            </tr>
+        {% for post in news %}
+            <tr>
+                <td>
+                    {{ post.postName }}
+                </td>
+                <td>
+                     <b> | </b>
+                </td>
+                <td>
+                    {{post.postDate|date:'d m Y'}}
+                </td>
+                <td>
+                    <b> | </b>
+                </td>
+                <td>
+                    {{post.postBody|truncatewords:20}}
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+
+{% endblock content %}
