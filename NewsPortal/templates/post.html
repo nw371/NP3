@@ -11,7 +11,11 @@
 <br>
 Автор: {{ post.postAuthor.authorUser}}
 <br>
-Категория: {{post.postCategory}}
+Категория:
+{% for i in post.postCategory.values %}
+{{i.name}}
+{% endfor %}
+
 <br>
 Рейтинг: {{ post.postRating}}
 <br>

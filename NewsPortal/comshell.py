@@ -98,7 +98,10 @@ for i in c.values():
     print("----------------")
 
 #вывод категории поста
-Post.objects.get(id=1).postCategory.values("name")
+cat=Post.objects.get(id=1).postCategory.values("name")
+for i in cat.values():
+    print(i['name'])
+
 #готовая команда для создания тестовых постов
 Post.objects.create(postType = 'AR', postName = 'Пост для проверки типа', postBody = f'Проверяем, как работает тип поста по умолчанию.', postAuthor = Author.objects.get(id = 1))
 
