@@ -1,12 +1,12 @@
 <!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
 {% extends 'flatpages/default.html' %}
 {% load my_filters %}
-<!-- Название у нас будет proudcts -->
+<!-- Название у нас будет Новости -->
 {% block title %}
-News
+Новости
 {% endblock title %}
 
-<!-- В контенте на странице мы выводим все товары -->
+<!-- В контенте на странице мы выводим все публикации -->
 {% block content %}
 <h1>Список публикаций</h1>
 <h1>Всего публикаций: {{news|length}}</h1>
@@ -16,13 +16,13 @@ News
                     <b>Заголовок</b>
                 </td>
                 <td>
-                     <b> | </b>
+                     <b><pre> | </pre></b>
                 </td>
                 <td>
                     <b>Дата</b>
                 </td>
                 <td>
-                     <b> | </b>
+                     <b><pre> | </pre></b>
                 </td>
                 <td>
                     <b>Предпросмотр</b>
@@ -34,13 +34,13 @@ News
                    <a href="/news/{{post.id}}">{{ post.postName|censor }} </a>
                 </td>
                 <td>
-                     <b> | </b>
+                     <b><pre> | </pre></b>
                 </td>
                 <td>
                     {{post.postDate|date:'d m Y'}}
                 </td>
                 <td>
-                    <b> | </b>
+                    <b><pre> | </pre></b>
                 </td>
                 <td>
                     {{post.postBody|truncatewords:20|censor}}
