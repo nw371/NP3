@@ -31,7 +31,7 @@ News
         {% for post in news %}
             <tr>
                 <td>
-                    {{ post.postName|censor }}
+                   <a href="/news/{{post.id}}">{{ post.postName|censor }} </a>
                 </td>
                 <td>
                      <b> | </b>
@@ -43,7 +43,7 @@ News
                     <b> | </b>
                 </td>
                 <td>
-                    {{post.postBody|truncatewords:20}}
+                    {{post.postBody|truncatewords:20|censor}}
                 </td>
             </tr>
         {% endfor %}

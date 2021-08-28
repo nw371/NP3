@@ -11,8 +11,7 @@ def censor(value):  # первый аргумент здесь это то зн�
 
     for idx, i in enumerate(cens_filt):
 
-        text_to_check = text_to_check.replace(i,'censored')
-
+        text_to_check = text_to_check.replace(i,'ТУТ БЫЛ МАТ')
 
     return text_to_check
 
