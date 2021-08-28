@@ -6,15 +6,21 @@
 # python3 manage.py makemigrations
 # python3 manage.py migrate
 
+#команда для запуска этого файла из оболочки джанги, т.к. запуск файла из терминала ругается матом - нет времени разбираться.
 # exec(open('comshell.py').read())
 
 #ГЕНЕРАТЦИЯ ДАННЫХ
+#Скрипт для быстрой генерации тестовых данных.
+#параметр from_the_scratch определяет будут ли генерироваться данные с нуля.
+#если генерация уже один раз была - from_the_scratch = 1 выдаст ошибки, т.к. такие авторы и усеры уже есть
+#в таком случае надо выставлять в from_the_scratch = 0
 
 from news.models import *
 
 import random
 
-ptype = [news, article]
+#исходные данные для генерации количества объектов
+ptype = ['NS', 'AL']
 aindex = [1, 2]
 usersQTY = 11
 authQTY = 3
@@ -98,11 +104,11 @@ for i in c.values():
     print("----------------")
 
 #вывод категории поста
-cat=Post.objects.get(id=1).postCategory.values("name")
-for i in cat.values():
-    print(i['name'])
+# cat=Post.objects.get(id=1).postCategory.values("name")
+# for i in cat.values():
+#     print(i['name'])
 
-#готовая команда для создания тестовых постов
-Post.objects.create(postType = 'AR', postName = 'Пост для проверки типа', postBody = f'Проверяем, как работает тип поста по умолчанию.', postAuthor = Author.objects.get(id = 1))
+#готовая команда для создания отдельных тестовых постов
+#Post.objects.create(postType = 'AR', postName = 'Пост для проверки типа', postBody = f'Проверяем, как работает тип поста по умолчанию.', postAuthor = Author.objects.get(id = 1))
 
 
