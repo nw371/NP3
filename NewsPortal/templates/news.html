@@ -31,7 +31,7 @@ News
         {% for post in news %}
             <tr>
                 <td>
-                    {{ post.postName }}
+                    {{ post.postName|censor }}
                 </td>
                 <td>
                      <b> | </b>

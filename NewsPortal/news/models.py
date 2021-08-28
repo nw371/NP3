@@ -42,13 +42,13 @@ class Category(models.Model):
 class Post(models.Model):
     news = 'NS'
     article = 'AL'
-    TYPES = [
+    TYPES = (
         (news, 'Новость'),
         (article, 'Статья')
-    ]
+    )
 
     # поле с выбором — «статья» или «новость»
-    postType = models.CharField(max_length=2, choices=TYPES, default='NS')
+    postType = models.CharField(max_length=2, choices=TYPES, default=news)
     # автоматически добавляемая дата и время создания
     postDate = models.DateTimeField(auto_now_add=True)
     # заголовок статьи/новости

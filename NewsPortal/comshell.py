@@ -9,18 +9,19 @@
 # exec(open('comshell.py').read())
 
 #ГЕНЕРАТЦИЯ ДАННЫХ
+
 from news.models import *
 
 import random
 
-ptype = ['AL', 'NS']
+ptype = [news, article]
 aindex = [1, 2]
 usersQTY = 11
 authQTY = 3
 postQTY = 16
 commQTY = 26
 catQTY = 5
-from_the_scratch = 0
+from_the_scratch = 1
 
 # Создать двух пользователей (с помощью метода User.objects.create_user)
 if from_the_scratch:
@@ -95,3 +96,11 @@ for i in c.values():
     print(f"Comment rating: {i['commentRating']}")
     print(f"Comment: {i['commentBody']}")
     print("----------------")
+
+#вывод категории поста
+Post.objects.get(id=1).postCategory.values("name")
+
+Post.objects.create(postType = 'AR', postName = 'Post бля матерный Name', postBody = f'Very short блять очень матерный TEST', postAuthor = Author.objects.get(id = 1))
+
+p1 = Post.objects.filter(postType = Post.news)
+ost.objects.get(id=1).postCategory(id=1)

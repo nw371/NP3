@@ -1,15 +1,15 @@
 <!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
 {% extends 'flatpages/default.html' %}
-
+{% load my_filters %}
 <!-- Название у нас будет proudcts -->
 {% block title %}
-{{ post.postName }}
+{{ post.postName|censor }}
 <br>
 Дата: {{ post.postDate|date:'d m Y' }}{{ post.postDate|time:'H M' }}
 <br>
 Автор: {{ post.postAuthor.authorUser}}
 <br>
-Категория: {{post.postCategory}}
+Категория: {{post.postCategory.Category.name}}
 <br>
 Рейтинг: {{ post.postRating}}
 <br>
@@ -18,7 +18,7 @@
 
 <!-- В контенте на странице мы выводим сам товар, ID которого было передано в адрес -->
 {% block content %}
-<h1>{{ post.postBody }}</h1>
+<h1>{{ post.postBody|censor}}</h1>
 <br>
 <br>
 <br>
