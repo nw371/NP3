@@ -99,8 +99,7 @@ for i in c.values():
 
 #вывод категории поста
 Post.objects.get(id=1).postCategory.values("name")
+#готовая команда для создания тестовых постов
+Post.objects.create(postType = 'AR', postName = 'Пост для проверки типа', postBody = f'Проверяем, как работает тип поста по умолчанию.', postAuthor = Author.objects.get(id = 1))
 
-Post.objects.create(postType = 'AR', postName = 'Post бля матерный Name', postBody = f'Very short блять очень матерный TEST', postAuthor = Author.objects.get(id = 1))
 
-p1 = Post.objects.filter(postType = Post.news)
-ost.objects.get(id=1).postCategory(id=1)

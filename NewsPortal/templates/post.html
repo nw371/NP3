@@ -5,15 +5,17 @@
 {% block title %}
 {{ post.postName|censor }}
 <br>
-Дата: {{ post.postDate|date:'d m Y' }}{{ post.postDate|time:'H M' }}
+Дата: {{ post.postDate|date:'d m Y' }}
+Время: {{ post.postDate|date:'H:m'}}
+
 <br>
 Автор: {{ post.postAuthor.authorUser}}
 <br>
-Категория: {{post.postCategory.Category.name}}
+Категория: {{post.postCategory}}
 <br>
 Рейтинг: {{ post.postRating}}
 <br>
-Тип публикации: {{post.postType}}
+Тип публикации: {{post.get_postType_display}}
 {% endblock title %}
 
 <!-- В контенте на странице мы выводим сам товар, ID которого было передано в адрес -->
